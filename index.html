@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Feda Bar</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/locales-all.min.js"></script>
+</head>
+<body>
+  <header>
+    <div class="nav-left">
+      <h1 class="nav-item" onclick="window.location.href='index.html'">Feda Bar 🪶</h1>
+    </div>
+    <div class="nav-right">
+      <button id="register-button" onclick="showRegistration()">Anmelden</button>
+      <button id="admin-button" onclick="showAdminLogin()">Admin</button>
+      <button id="logout-button" style="display: none;">Abmelden</button>
+      <button class="nav-item" onclick="window.location.href='contact.html'">Kontakt</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="registration" style="display:none;">
+      <h2>Anmeldung</h2>
+      <form id="registration-form">
+        <label for="username">Nutzername:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Passwort:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit">Anmelden</button>
+      </form>
+    </section>
+
+    <section id="admin-login" style="display:none;">
+      <h2>Admin-Anmeldung</h2>
+      <form id="admin-login-form">
+        <label for="adminUsername">Nutzername:</label>
+        <input type="text" id="adminUsername" name="adminUsername" required>
+
+        <label for="adminPassword">Passwort:</label>
+        <input type="password" id="adminPassword" name="adminPassword" required>
+
+        <button type="submit">Anmelden</button>
+      </form>
+    </section>
+
+    <section id="dashboard" style="display:none;">
+      <h2>Willkommen, <span id="loggedInUser"></span>!</h2>
+      <div id="memberPanel">
+        <button id="calendarButton">Kalender</button>
+        <button id="createEventButton" style="display:none;">Termin erstellen</button>
+        <button id="deleteEventButton" style="display:none;">Termin löschen</button>
+        <div id="calendarContainer">
+          <div id="calendar"></div>
+        </div>
+        <div id="financeInfo">
+          <h3>Finanzen</h3>
+          <p>Mitgliedschaftsbeitrag: <span id="membershipFee">15€</span></p>
+          <p>Gesamt-Einnahmen pro Monat: <span id="totalIncome">105€</span></p>
+        </div>
+        <div id="adminPanel" style="display:none;">
+          <h3>Admin-Panel</h3>
+          <p>Anzahl der Mitglieder: <span id="memberCount"></span></p>
+          <button id="createMemberButton">Mitglied erstellen</button>
+          <div id="memberList">
+            <h4>Admins 👑:</h4>
+            <div id="adminList"></div>
+            <h4>Aktive Mitglieder:</h4>
+            <div id="activeMemberList"></div>
+            <h4>Gelöschte Mitglieder:</h4>
+            <div id="deletedMemberList"></div>
+          </div>
+          <button id="deleteMemberButton" style="display:none;">Mitglied löschen</button>
+        </div>
+        <div id="createMemberForm" style="display:none;">
+          <form id="newMemberForm">
+            <label for="memberUsername">Nutzername:</label>
+            <input type="text" id="memberUsername" name="memberUsername" required>
+
+            <label for="memberPassword">Passwort:</label>
+            <input type="password" id="memberPassword" name="memberPassword" required>
+
+            <button type="submit">Mitglied speichern</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
